@@ -6,6 +6,7 @@ import com.flexe.authservice.exceptions.SessionInvalidException;
 import com.flexe.authservice.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ public class SessionAuthenticationProvider implements AuthenticationProvider {
         // Validate session token through Session Table
         Session session = sessionRepository.findSessionBySessionToken(sessionToken).orElse(null);
         if(session == null || session.isExpired()){
-            throw new AuthenticationException("Session Token Provided is Invalid or Expired"){};
+            throw new BadCredentialsException("Session Token Provided is Invalid or Expired"){};
         }
 
         return new SessionAuthenticationToken(session.getUserId(), sessionToken);
