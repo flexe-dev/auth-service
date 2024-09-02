@@ -53,11 +53,11 @@ public class NodeController {
         }
     }
 
-    @GetMapping("/p/network/{userId}")
-    public ResponseEntity<UserNetwork> getUserNetwork(@PathVariable String userId){
+    @GetMapping("/p/network/{username}")
+    public ResponseEntity<UserNetwork> getUserNetwork(@PathVariable String username){
         try{
             ResponseEntity<UserNetwork> response = httpService.get(client,
-                    serverPrefix + "/network/" + userId,
+                    serverPrefix + "/user/network/" + username,
                     UserNetwork.class);
             return ResponseEntity.ok(response.getBody());
         }
@@ -68,4 +68,5 @@ public class NodeController {
             return ResponseEntity.badRequest().build();
         }
     }
+
 }
