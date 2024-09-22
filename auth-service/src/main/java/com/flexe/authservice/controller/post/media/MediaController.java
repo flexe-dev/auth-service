@@ -61,8 +61,8 @@ public class MediaController {
     }
 
     @GetMapping("/p/user/{userId}")
-    public ResponseEntity<MediaPost> getAllUserPosts(@PathVariable String userId) {
-        return handleGetRequest("/user/" + userId, MediaPost.class);
+    public ResponseEntity<MediaPost[]> getAllUserPosts(@PathVariable String userId) {
+        return handleGetRequest("/user/" + userId, MediaPost[].class);
     }
 
     @DeleteMapping("/delete/{postId}")

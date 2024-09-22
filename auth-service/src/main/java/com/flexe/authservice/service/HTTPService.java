@@ -24,10 +24,14 @@ public class HTTPService {
     @Value("${INTERACTION_SERVICE_URL}")
     private String INTERACTION_SERVICE_URL;
 
+    @Value("${FEED_SERVICE_URL}")
+    private String FEED_SERVICE_URL;
+
     public enum TargetServer{
         POST,
         USER,
-        INTERACTION
+        INTERACTION,
+        FEED
     }
 
     public enum TargetController{
@@ -37,7 +41,8 @@ public class HTTPService {
         MEDIA,
         TEXT,
         NODE,
-        PREFERENCE
+        PREFERENCE,
+        FEED
     }
 
     public String getServerURL(TargetServer server){
@@ -45,6 +50,7 @@ public class HTTPService {
             case POST -> POST_SERVICE_URL;
             case USER -> USER_SERVICE_URL;
             case INTERACTION -> INTERACTION_SERVICE_URL;
+            case FEED -> FEED_SERVICE_URL;
         };
     }
 
@@ -60,6 +66,7 @@ public class HTTPService {
             case COMMENT -> "/comment";
             case MEDIA -> "/media";
             case TEXT -> "/text";
+            case FEED -> "/feed";
             case PREFERENCE -> "/preference";
         };
     }

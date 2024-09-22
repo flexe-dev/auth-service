@@ -41,15 +41,16 @@ public class AuthService {
     public void createUser(EmailCredential credentials){
         User user = new User(credentials.getEmail());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        UserAuthentication auth = new UserAuthentication(user.getId(), encoder.encode(credentials.getPassword()));
-        Account account = new Account(user.getId());
-
-        //Save New Data to the Database
 
         //Send Request to User Service
         WebClient client = httpService.generateWebClient(HTTPService.TargetServer.USER);
         ResponseEntity<User> newUserResponse = httpService.post(client, "/user/create", user, User.class);
-        if(newUserResponse == null) throw new IllegalArgumentException("User Creation Failed");
+        if(newUserResponse == null || newUserResponse.getBody() == null)
+            throw new IllegalArgumentException("User Creation Failed");
+
+        User savedUser = newUserResponse.getBody();
+        UserAuthentication auth = new UserAuthentication(savedUser.getId(), encoder.encode(credentials.getPassword()));
+        Account account = new Account(savedUser.getId());
 
         userAuthenticationRepository.save(auth);
         accountRepository.save(account);
