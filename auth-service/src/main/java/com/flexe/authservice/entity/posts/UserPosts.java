@@ -2,7 +2,11 @@ package com.flexe.authservice.entity.posts;
 
 import com.flexe.authservice.entity.posts.media.MediaPost;
 import com.flexe.authservice.entity.posts.text.TextPost;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class UserPosts {
     private MediaPost[] mediaPosts;
     private TextPost[] textPosts;
@@ -12,20 +16,5 @@ public class UserPosts {
         this.textPosts = new TextPost[0];
     }
 
-    public UserPosts(MediaPost[] mediaPosts, TextPost[] textPosts){
-        this.mediaPosts = mediaPosts;
-        this.textPosts = textPosts;
-    };
 
-    public MediaPost[] getMediaPosts() {
-        return mediaPosts;
-    }
-
-    public void setMediaPosts(MediaPost[] mediaPosts) {
-        this.mediaPosts = mediaPosts;
-    }
-
-    public TextPost[] getTextPosts() { return textPosts;}
-
-    public void setTextPosts(TextPost[] textPosts) {this.textPosts = textPosts;}
 }

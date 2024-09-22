@@ -2,9 +2,13 @@ package com.flexe.authservice.entity.relationships;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.flexe.authservice.entity.user.UserNode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
+@Getter
+@Setter
 public class UserInteractionRelationship {
 
     private Long id;
@@ -13,26 +17,6 @@ public class UserInteractionRelationship {
     private UserNode user;
 
     public UserInteractionRelationship(){}
-
-    public UserInteractionRelationship(UserNode user){
-        this.user = user;
-        this.timestamp = new Date();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public UserNode getUser() {
-        return user;
-    }
-
-
-
 
 }
 

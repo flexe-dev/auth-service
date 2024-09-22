@@ -1,9 +1,13 @@
 package com.flexe.authservice.entity.relationships;
 
 import com.flexe.authservice.entity.posts.PostNode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
+@Getter
+@Setter
 public class PostCreationRelationship {
 
     private Long id;
@@ -13,28 +17,4 @@ public class PostCreationRelationship {
     public PostCreationRelationship(){
     }
 
-    public PostCreationRelationship(PostNode postNode){
-        this.post = postNode;
-        this.createdAt = new Date();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public PostNode getPost() {
-        return post;
-    }
-
-    public void setPost(PostNode post) {
-        this.post = post;
-    }
 }
