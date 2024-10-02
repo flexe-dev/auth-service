@@ -1,7 +1,6 @@
 package com.flexe.authservice.controller.post.media;
 
 import com.flexe.authservice.auth.SessionAuthenticationToken;
-import com.flexe.authservice.entity.posts.media.MediaPost;
 import com.flexe.authservice.service.AuthService;
 import com.flexe.authservice.service.HTTPService;
 import jakarta.annotation.PostConstruct;

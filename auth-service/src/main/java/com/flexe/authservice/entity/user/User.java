@@ -1,5 +1,7 @@
 package com.flexe.authservice.entity.user;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,6 +10,8 @@ import java.util.Date;
 import java.util.UUID;
 
 
+@Getter
+@Setter
 @Document(collection = "User")
 public class User{
     @Id
@@ -41,62 +45,6 @@ public class User{
         this.username = username;
         this.name = name;
         this.image = image;
-        this.onboarded = onboarded;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getEmailVerified() {
-        return emailVerified;
-    }
-
-    public void setEmailVerified(Date emailVerified) {
-        this.emailVerified = emailVerified;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Boolean getOnboarded() {
-        return onboarded;
-    }
-
-    public void setOnboarded(Boolean onboarded) {
         this.onboarded = onboarded;
     }
 

@@ -1,8 +1,11 @@
 package com.flexe.authservice.entity.posts;
 
+import com.flexe.authservice.entity.posts.core.Post;
+import com.flexe.authservice.enums.PostEnums.PostType;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,13 +20,8 @@ public class PostNode {
 
     //Metadata
     private List<String> tags;
-    private List<String> tech;
     private List<String> keywords;
 
-    public enum PostType{
-        TEXT,
-        MEDIA
-    }
 
     public PostNode(){
 

@@ -1,6 +1,5 @@
 package com.flexe.authservice.controller.post;
 
-import com.flexe.authservice.entity.posts.UserPosts;
 import com.flexe.authservice.service.HTTPService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.flexe.authservice.entity.user;
+package com.flexe.authservice.entity.posts;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,9 +11,6 @@ public class UserInteraction {
     private String userId;
     @NonNull
     private String targetId;
-
-    public UserInteraction() {
-    }
 
     public UserInteraction(@NonNull String userId, @NonNull String targetId) {
         this.userId = userId;
