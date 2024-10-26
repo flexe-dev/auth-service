@@ -1,6 +1,7 @@
 package com.flexe.authservice.controller.post.media;
 
 import com.flexe.authservice.auth.SessionAuthenticationToken;
+import com.flexe.authservice.entity.posts.core.MediaPost;
 import com.flexe.authservice.service.AuthService;
 import com.flexe.authservice.service.HTTPService;
 import jakarta.annotation.PostConstruct;
@@ -34,34 +35,9 @@ public class MediaController {
         return handlePostRequest("/upload", post, MediaPost.class);
     }
 
-    @PostMapping("/like/{postId}")
-    public ResponseEntity<String> likePost(@PathVariable String postId) {
-        return handleAuthenticatedPostRequest("/like/" + postId, String.class);
-    }
-
-    @PostMapping("/unlike/{postId}")
-    public ResponseEntity<String> unlikePost(@PathVariable String postId) {
-        return handleAuthenticatedPostRequest("/unlike/" + postId, String.class);
-    }
-
-    @PostMapping("/save/{postId}")
-    public ResponseEntity<String> savePost(@PathVariable String postId) {
-        return handleAuthenticatedPostRequest("/save/" + postId, String.class);
-    }
-
-    @PostMapping("/unsave/{postId}")
-    public ResponseEntity<String> unsavePost(@PathVariable String postId) {
-        return handleAuthenticatedPostRequest("/unsave/" + postId, String.class);
-    }
-
     @GetMapping("/p/find/{id}")
     public ResponseEntity<MediaPost> getUserPostFromID(@PathVariable String id) {
         return handleGetRequest("/find/" + id, MediaPost.class);
-    }
-
-    @GetMapping("/p/user/{userId}")
-    public ResponseEntity<MediaPost[]> getAllUserPosts(@PathVariable String userId) {
-        return handleGetRequest("/user/" + userId, MediaPost[].class);
     }
 
     @DeleteMapping("/delete/{postId}")

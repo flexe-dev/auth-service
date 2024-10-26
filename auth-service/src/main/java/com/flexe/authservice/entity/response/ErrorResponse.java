@@ -6,6 +6,13 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public record ErrorResponse(HttpStatus statusCode, String message) {
+public class ErrorResponse {
+    private final HttpStatus statusCode;
+    private final String message;
 
+    public ErrorResponse(HttpStatus statusCode, String message) {
+        this.statusCode = statusCode;
+        this.message = message;
+    }
+   
 }

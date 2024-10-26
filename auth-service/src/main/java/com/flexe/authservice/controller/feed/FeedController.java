@@ -2,14 +2,15 @@ package com.flexe.authservice.controller.feed;
 
 import com.flexe.authservice.auth.SessionAuthenticationToken;
 import com.flexe.authservice.entity.feed.FeedDisplay;
+import com.flexe.authservice.entity.feed.FeedPost;
+import com.flexe.authservice.entity.posts.core.Post;
 import com.flexe.authservice.service.AuthService;
 import com.flexe.authservice.service.HTTPService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 

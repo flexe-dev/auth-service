@@ -5,16 +5,15 @@ import com.flexe.authservice.entity.posts.PostNode;
 import com.flexe.authservice.entity.posts.metrics.Comment;
 import com.flexe.authservice.entity.posts.metrics.CommentNode;
 import com.flexe.authservice.entity.posts.metrics.CommentReact;
+import com.flexe.authservice.enums.PostEnums.PostType;
 import com.flexe.authservice.service.AuthService;
 import com.flexe.authservice.service.HTTPService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +50,7 @@ public class CommentController {
     }
 
     @PostMapping("/add/{postType}")
-    public ResponseEntity<Comment> addComment(@RequestBody Comment comment, @PathVariable PostNode.PostType postType){
+    public ResponseEntity<Comment> addComment(@RequestBody Comment comment, @PathVariable PostType postType){
         try{
             ResponseEntity<Comment> response = httpService.post(client,
                     serverPrefix + "/add/" + postType, comment,
@@ -64,7 +63,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/delete/comment/{postType}")
-    public ResponseEntity<Integer> deleteCommentById(@RequestBody CommentNode comment, @PathVariable PostNode.PostType postType){
+    public ResponseEntity<Integer> deleteCommentById(@RequestBody CommentNode comment, @PathVariable PostType postType){
         try{
             ResponseEntity<Integer> response = httpService.delete(client,
                     serverPrefix + "/delete/comment/" + postType, comment,
