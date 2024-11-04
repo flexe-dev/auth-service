@@ -1,7 +1,7 @@
 package com.flexe.authservice.controller.interaction;
 
 import com.flexe.authservice.auth.SessionAuthenticationToken;
-import com.flexe.authservice.entity.user.UserNetwork;
+import com.flexe.authservice.entity.user.Network.UserNetwork;
 import com.flexe.authservice.entity.user.UserNode;
 import com.flexe.authservice.service.AuthService;
 import com.flexe.authservice.service.HTTPService;
@@ -54,10 +54,10 @@ public class NodeController {
     }
 
     @GetMapping("/p/network/{username}")
-    public ResponseEntity<UserNetwork> getUserNetwork(@PathVariable String username){
+    public ResponseEntity<UserNetwork> getUserNetwork(@PathVariable String username, @RequestParam(required = false) String userId){
         try{
             ResponseEntity<UserNetwork> response = httpService.get(client,
-                    serverPrefix + "/user/network/" + username,
+                    serverPrefix + "/user/network/" + username + "?userId=" + userId,
                     UserNetwork.class);
             return ResponseEntity.ok(response.getBody());
         }

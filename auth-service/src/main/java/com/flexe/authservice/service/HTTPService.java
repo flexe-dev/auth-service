@@ -42,6 +42,7 @@ public class HTTPService {
         MEDIA,
         TEXT,
         NODE,
+        INTERACTION,
         PREFERENCE,
         FEED
     }
@@ -69,6 +70,7 @@ public class HTTPService {
             case TEXT -> "/text";
             case FEED -> "/feed";
             case PREFERENCE -> "/preference";
+            case INTERACTION -> "/interaction";
         };
     }
 

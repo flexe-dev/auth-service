@@ -20,9 +20,7 @@ public class PostNode {
 
     //Metadata
     private List<String> tags;
-    private List<String> keywords;
-
-
+    
     public PostNode(){
 
     }
